@@ -14,7 +14,7 @@
     "REST"
   ],
   "author": "Aaron Elligsen",
-  "license": "BSD-2-Clause",
+  "license": "MIT",
   "dependencies": {
     "redis": "~0.10.0"
   }
