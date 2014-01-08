@@ -10,8 +10,8 @@ In the Hapi init code:
 var Hapi = require('hapi');
 var server = Hapi.createServer();
 var rateOpts = {
-  redis:{port:redis-port#, host:redis-host#}, 
-  routes: server._router,
+  redis:{port:#redis-port#, host:#redis-host#}, 
+  namespace:"clhr", //namespace for redis keys
   global: {limit: -1, bucketLength: 60 } //-1 to disable global limit
 };
 server.route({
