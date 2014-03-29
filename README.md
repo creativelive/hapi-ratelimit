@@ -1,6 +1,8 @@
 #cl-hapi-rate
 A simple ip based rate limiting plugin for Hapi using Redis.
 
+WARNING: This is not sufficient protection against DDoS attacks. 
+
 ##Installation
   npm install cl-hapi-rate
 
@@ -12,7 +14,8 @@ var server = Hapi.createServer();
 var rateOpts = {
   redis:{port:#redis-port#, host:#redis-host#}, 
   namespace:"clhr", //namespace for redis keys
-  global: {limit: -1, bucketLength: 60 } //-1 to disable global limit
+  global: {limit: 200, bucketLength: 60 } //Set limit to -1 or leave out global to disable global limit
+  //The global limit is not given priority over local limits
 };
 server.route({
   method: 'GET',
@@ -20,11 +23,11 @@ server.route({
   handler: someHandler,
   configs: {
     plugins: {
-       "cl-hapi-rate": {limit: 100, bucketLength: 60} //limits to one hundred hits per minute
+       "hapi-ratelimit": {limit: 100, bucketLength: 60} //limits to one hundred hits per minute on a specific route
     }
   }
 });
-server.pack.require('cl-hapi-rate',rateOpts, function(err) { 
+server.pack.require('hapi-ratelimit',rateOpts, function(err) { 
   console.log(err);
 });
 ```

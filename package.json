@@ -1,5 +1,5 @@
 {
-  "name": "cl-hapi-rate",
+  "name": "hapi-ratelimit",
   "version": "0.0.1",
   "description": "A rate limiting plugin for HAPI.",
   "main": "index.js",
@@ -17,5 +17,13 @@
   "license": "MIT",
   "dependencies": {
     "redis": "~0.10.0"
+  },
+  "devDependencies": {
+    "hapi": "~1.2.x",
+    "supertest": "~0.8.3",
+    "simple-ansi": "0.0.1",
+    "moment": "~2.5.1",
+    "mocha": "~1.18.2",
+    "async": "~0.6.2"
   }
 }
