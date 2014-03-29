@@ -1,10 +1,10 @@
-#cl-hapi-rate
+#hapi-ratelimit
 A simple ip based rate limiting plugin for Hapi using Redis.
 
 WARNING: This is not sufficient protection against DDoS attacks. 
 
 ##Installation
-  npm install cl-hapi-rate
+  npm install hapi-ratelimit
 
 ## Usage
 In the Hapi init code:
