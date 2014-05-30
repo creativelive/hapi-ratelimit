@@ -1,0 +1,6 @@
+{
+  "lint": [
+    "!node_modules/**/*.js",
+    "**/*.js"
+  ]
+}
