@@ -18,7 +18,7 @@ server.route([{
     plugins: {
       'hapi-ratelimit': {
         limit: 2,
-        bucketLength: 5
+        duration: 5
       }
     }
   }
@@ -39,7 +39,7 @@ var rateopts = {
   },
   global: {
     limit: 10,
-    bucketLength: 20
+    duration: 20
   }
 };
 server.pack.require('../../hapi-ratelimit', rateopts, function(err) {
