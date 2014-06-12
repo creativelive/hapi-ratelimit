@@ -11,6 +11,7 @@ A simple ip based rate limiting plugin for Hapi using Redis.
 In the Hapi init code:
 ```javascript
 var Hapi = require('hapi');
+var hratelimit = require('hapi-ratelimit');
 var server = Hapi.createServer();
 var rateOpts = {
   redis:{port:#redis-port#, host:#redis-host#},
@@ -28,7 +29,12 @@ server.route({
     }
   }
 });
-server.pack.require('hapi-ratelimit',rateOpts, function(err) {
-  console.log(err);
-});
+server.pack.register({
+    options: rateOpts,
+    plugin: hratelimit
+  }, 
+  function(err) {
+    console.log(err);
+  }
+);
 ```
