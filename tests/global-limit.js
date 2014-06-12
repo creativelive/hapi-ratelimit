@@ -15,7 +15,18 @@ describe('Hapi route based rate limiting', function() {
     request(url).get('/testglobal').expect(429, cb);
   }
   it('Should return 429 if global limit is reached', function(done) {
-    async.series([testok, testok, testok, testok, testok, testok, testok, testok, testok, testok, test429], done);
+    async.series([
+      testok,
+      testok,
+      testok,
+      testok,
+      testok,
+      testok,
+      testok,
+      testok,
+      testok,
+      test429
+    ], done);
   });
 
 });
