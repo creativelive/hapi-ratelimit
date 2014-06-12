@@ -43,9 +43,9 @@ var rateopts = {
   }
 };
 server.pack.register({
-    options: rateopts,
-    plugin: require('../../hapi-ratelimit'),
-  }, {},  function(err) {
+  options: rateopts,
+  plugin: require('../../hapi-ratelimit')
+}, {}, function(err) {
   if (err) {
     console.log(err);
   }
