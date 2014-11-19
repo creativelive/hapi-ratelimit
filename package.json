@@ -33,7 +33,7 @@
     "confidence": ">=0.12.1",
     "gulp-eslint": ">=0.1.7"
   },
-  repository": {
+  "repository": {
     "type": "git",
     "url": "git://github.com/creativelive/hapi-ratelimit.git"
   },
