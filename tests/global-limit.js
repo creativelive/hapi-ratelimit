@@ -25,6 +25,7 @@ describe('Hapi route based rate limiting', function() {
       testok,
       testok,
       testok,
+      testok,
       test429
     ], done);
   });
