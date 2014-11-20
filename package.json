@@ -17,7 +17,7 @@
   "license": "MIT",
   "dependencies": {
     "redis": "~0.10.0",
-    "ratelimiter": "~1.0.1",
+    "ratelimiter": "~2.0.0",
     "hoek": "~2.3.0"
   },
   "devDependencies": {
