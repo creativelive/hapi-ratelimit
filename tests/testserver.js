@@ -5,8 +5,14 @@ var ansi = require('simple-ansi');
 var moment = require('moment');
 
 var debug = true;
-var server = new Hapi.Server('localhost', 8081, {});
-server.route([{
+var server = new Hapi.Server();
+
+var connection = server.connection({
+  port: 8081,
+  labels: 'test'
+})
+
+connection.route([{
   method: 'GET',
   path: '/test',
   handler: function(request, reply) {
@@ -42,9 +48,9 @@ var rateopts = {
     duration: 20
   }
 };
-server.pack.register({
+connection.register({
   options: rateopts,
-  plugin: require('../../hapi-ratelimit')
+  register: require('../../hapi-ratelimit')
 }, {}, function(err) {
   if (err) {
     console.log(err);
