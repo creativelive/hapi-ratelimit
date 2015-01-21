@@ -7,7 +7,7 @@ This is a fork from the [creativelive](https://github.com/creativelive/hapi-rate
 ##Installation
 
 ```
-npm install hapi-ratelimit/franciscogouveia
+npm install franciscogouveia/hapi-ratelimit
 ```
 
 ## Usage
