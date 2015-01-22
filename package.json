@@ -1,6 +1,6 @@
 {
   "name": "hapi-ratelimit",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "A rate limiting plugin for HAPI.",
   "main": "index.js",
   "scripts": {
@@ -16,12 +16,13 @@
   "author": "Aaron Elligsen (https://github.com/cl-aaron, https://github.com/hath995)",
   "license": "MIT",
   "dependencies": {
-    "redis": "~0.10.0",
+    "boom": "^2.6.1",
+    "hoek": "~2.3.0",
     "ratelimiter": "~2.0.0",
-    "hoek": "~2.3.0"
+    "redis": "~0.10.0"
   },
   "devDependencies": {
-    "hapi": "~6.0.0",
+    "hapi": ">=8.0.0",
     "supertest": "~0.8.3",
     "simple-ansi": "0.0.1",
     "moment": "~2.5.1",
