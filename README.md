@@ -2,12 +2,10 @@
 
 A simple ip based rate limiting plugin for Hapi using Redis.
 
-This is a fork from the [creativelive](https://github.com/creativelive/hapi-ratelimit) project. It adds support to **Hapi 8**.
-
 ##Installation
 
 ```
-npm install franciscogouveia/hapi-ratelimit
+npm install hapi-ratelimit
 ```
 
 ## Usage
