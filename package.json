@@ -4,7 +4,7 @@
   "description": "A rate limiting plugin for HAPI.",
   "main": "index.js",
   "scripts": {
-    "test": "./node_modules/gulp/bin/gulp.js lint"
+    "test": "gulp lint"
   },
   "keywords": [
     "rate-limit",
@@ -22,17 +22,18 @@
     "redis": "~0.10.0"
   },
   "devDependencies": {
-    "hapi": ">=8.0.0",
-    "supertest": "~0.8.3",
-    "simple-ansi": "0.0.1",
-    "moment": "~2.5.1",
-    "mocha": "~1.18.2",
     "async": "~0.6.2",
-    "minimist": "^0.1.0",
-    "gulp-jsbeautifier": "0.0.2",
-    "gulp-diff": ">=0.1.4",
     "confidence": ">=0.12.1",
-    "gulp-eslint": ">=0.1.7"
+    "gulp": "^3.9.0",
+    "gulp-diff": ">=0.1.4",
+    "gulp-eslint": ">=0.1.7",
+    "gulp-jsbeautifier": "0.0.2",
+    "hapi": ">=8.0.0",
+    "minimist": "^0.1.0",
+    "mocha": "~1.18.2",
+    "moment": "~2.5.1",
+    "simple-ansi": "0.0.1",
+    "supertest": "~0.8.3"
   },
   "repository": {
     "type": "git",
