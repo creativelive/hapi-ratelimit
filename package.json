@@ -1,39 +1,33 @@
 {
   "name": "hapi-ratelimit",
   "version": "0.2.2",
-  "description": "A rate limiting plugin for HAPI.",
+  "description": "A rate limiting plugin for Hapi.",
   "main": "index.js",
   "scripts": {
-    "test": "gulp lint"
+    "test": "lab -L -a code -t 100",
+    "test-cov-html": "lab -a code -r html -o coverage.html"
   },
   "keywords": [
     "rate-limit",
     "rate",
     "limit",
-    "HAPI",
-    "REST"
+    "hapi"
   ],
   "author": "Aaron Elligsen (https://github.com/cl-aaron, https://github.com/hath995)",
   "license": "MIT",
   "dependencies": {
-    "boom": "^2.6.1",
-    "hoek": "~2.3.0",
-    "ratelimiter": "~2.0.0",
-    "redis": "~0.10.0"
+    "boom": "2.x.x",
+    "hoek": "2.x.x",
+    "ratelimiter": "2.x.x",
+    "redis": "0.10.x"
   },
   "devDependencies": {
     "async": "~0.6.2",
-    "confidence": ">=0.12.1",
-    "gulp": "^3.9.0",
-    "gulp-diff": ">=0.1.4",
-    "gulp-eslint": ">=0.1.7",
-    "gulp-jsbeautifier": "0.0.2",
-    "hapi": ">=8.0.0",
-    "minimist": "^0.1.0",
-    "mocha": "~1.18.2",
+    "code": "2.x.x",
+    "hapi": ">=11",
+    "lab": "8.x.x",
     "moment": "~2.5.1",
-    "simple-ansi": "0.0.1",
-    "supertest": "~0.8.3"
+    "simple-ansi": "0.0.1"
   },
   "repository": {
     "type": "git",
