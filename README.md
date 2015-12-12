@@ -48,7 +48,7 @@ connection.route({
         plugins: { // If you want to override the default values
             'hapi-ratelimit': {
                 limit: 100, 
-                duration: 60
+                duration: '1 hour'  // Any valid ms config (https://github.com/rauchg/ms.js)
             } // Limits to one hundred hits per minute on a specific route
         }
     }
