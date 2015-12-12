@@ -28,7 +28,7 @@ const options = {
     namespace: 'clhr', // Namespace for redis keys
     global: {
         limit: 200,   // Set limit to -1 or leave out global to disable global limit
-        duration: 60 
+        duration: '30 minutes' 
     }
     // Global limit is not given priority over local limits
 };
