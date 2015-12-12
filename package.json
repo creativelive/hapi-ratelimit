@@ -1,46 +1,38 @@
 {
-  "name": "hapi-ratelimit",
-  "version": "0.2.2",
-  "description": "A rate limiting plugin for HAPI.",
-  "main": "index.js",
+  "name": "hapi-ratelimiter",
+  "version": "1.0.0",
+  "description": "A rate limiting plugin for Hapi.",
+  "main": "lib/index.js",
   "scripts": {
-    "test": "gulp lint"
+    "test": "lab -L -a code -t 100",
+    "test-cov-html": "lab -a code -r html -o coverage.html"
   },
   "keywords": [
     "rate-limit",
     "rate",
     "limit",
-    "HAPI",
-    "REST"
+    "hapi"
   ],
-  "author": "Aaron Elligsen (https://github.com/cl-aaron, https://github.com/hath995)",
+  "author": "Gaston Festari <cilindrox@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "boom": "^2.6.1",
-    "hoek": "~2.3.0",
-    "ratelimiter": "~2.0.0",
-    "redis": "~0.10.0"
+    "boom": "2.x.x",
+    "hoek": "2.x.x",
+    "ioredis": "1.x.x",
+    "ms": "0.7.x",
+    "ratelimiter": "2.x.x"
   },
   "devDependencies": {
-    "async": "~0.6.2",
-    "confidence": ">=0.12.1",
-    "gulp": "^3.9.0",
-    "gulp-diff": ">=0.1.4",
-    "gulp-eslint": ">=0.1.7",
-    "gulp-jsbeautifier": "0.0.2",
-    "hapi": ">=8.0.0",
-    "minimist": "^0.1.0",
-    "mocha": "~1.18.2",
-    "moment": "~2.5.1",
-    "simple-ansi": "0.0.1",
-    "supertest": "~0.8.3"
+    "code": "2.x.x",
+    "hapi": ">=11",
+    "lab": "8.x.x"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/creativelive/hapi-ratelimit.git"
+    "url": "git://github.com/cilindrox/hapi-ratelimiter.git"
   },
   "bugs": {
-    "url": "https://github.com/creativelive/hapi-ratelimit/issues"
+    "url": "https://github.com/cilindrox/hapi-ratelimiter/issues"
   },
-  "homepage": "https://github.com/creativelive/hapi-ratelimit"
+  "homepage": "https://github.com/cilindrox/hapi-ratelimiter"
 }
