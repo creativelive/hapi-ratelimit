@@ -1,5 +1,5 @@
 {
-  "name": "hapi-ratelimit",
+  "name": "hapi-ratelimiter",
   "version": "0.2.2",
   "description": "A rate limiting plugin for Hapi.",
   "main": "lib/index.js",
@@ -13,12 +13,12 @@
     "limit",
     "hapi"
   ],
-  "author": "Aaron Elligsen (https://github.com/cl-aaron, https://github.com/hath995)",
+  "author": "Gaston Festari <cilindrox@gmail.com>",
   "license": "MIT",
   "dependencies": {
     "boom": "2.x.x",
     "hoek": "2.x.x",
-    "ioredis": "^1.12.2",
+    "ioredis": "1.x.x",
     "ratelimiter": "2.x.x"
   },
   "devDependencies": {
@@ -28,10 +28,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/creativelive/hapi-ratelimit.git"
+    "url": "git://github.com/cilindrox/hapi-ratelimiter.git"
   },
   "bugs": {
-    "url": "https://github.com/creativelive/hapi-ratelimit/issues"
+    "url": "https://github.com/cilindrox/hapi-ratelimiter/issues"
   },
-  "homepage": "https://github.com/creativelive/hapi-ratelimit"
+  "homepage": "https://github.com/cilindrox/hapi-ratelimiter"
 }
