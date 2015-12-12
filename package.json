@@ -1,6 +1,6 @@
 {
   "name": "hapi-ratelimiter",
-  "version": "0.2.2",
+  "version": "1.0.0",
   "description": "A rate limiting plugin for Hapi.",
   "main": "lib/index.js",
   "scripts": {
