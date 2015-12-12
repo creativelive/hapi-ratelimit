@@ -2,7 +2,7 @@
   "name": "hapi-ratelimit",
   "version": "0.2.2",
   "description": "A rate limiting plugin for Hapi.",
-  "main": "index.js",
+  "main": "lib/index.js",
   "scripts": {
     "test": "lab -L -a code -t 100",
     "test-cov-html": "lab -a code -r html -o coverage.html"
@@ -26,8 +26,7 @@
     "code": "2.x.x",
     "hapi": ">=11",
     "lab": "8.x.x",
-    "moment": "~2.5.1",
-    "simple-ansi": "0.0.1"
+    "moment": "~2.5.1"
   },
   "repository": {
     "type": "git",
