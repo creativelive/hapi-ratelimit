@@ -5,6 +5,7 @@
 const Code = require('code');
 const Hapi = require('hapi');
 const Lab = require('lab');
+const Boom = require('boom');
 const Limit = require('../lib/');
 
 // Declare internals
@@ -154,6 +155,50 @@ it('ignores unconfigured routes', (done) => {
         server.inject(request, (response) => {
 
             expect(response.statusCode).to.equal(200);
+            expect(response.headers).to.not.include(
+                'x-ratelimit-remaining',
+                'x-ratelimit-limit',
+                'x-ratelimit-reset'
+            );
+            done();
+        });
+    });
+});
+
+
+it('ignores error responses', (done) => {
+
+    const server = new Hapi.Server();
+    server.connection();
+
+    const plugin = {
+        register: Limit,
+        options: {
+            global: { limit: 1, duration: 1 }
+        }
+    };
+
+    server.register(plugin, (err) => {
+
+        expect(err).to.not.exist();
+
+        server.route({
+            method: 'GET',
+            path: '/boom',
+            handler: (request, reply) => {
+
+                reply(Boom.notImplemented());
+            }
+        });
+
+        const request = {
+            method: 'GET',
+            url: '/boom'
+        };
+
+        server.inject(request, (response) => {
+
+            expect(response.statusCode).to.equal(501);
             expect(response.headers).to.not.include(
                 'x-ratelimit-remaining',
                 'x-ratelimit-limit',
