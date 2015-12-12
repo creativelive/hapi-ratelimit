@@ -19,6 +19,7 @@
     "boom": "2.x.x",
     "hoek": "2.x.x",
     "ioredis": "1.x.x",
+    "ms": "0.7.x",
     "ratelimiter": "2.x.x"
   },
   "devDependencies": {

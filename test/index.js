@@ -44,7 +44,7 @@ it('adds rate-limiting headers on each request', (done) => {
                 reply({ success: true });
             },
             config: {
-                plugins: { 'hapi-ratelimit': { limit: 2, duration: 1 } }
+                plugins: { 'hapi-ratelimit': { limit: 2, duration: '1s' } }
             }
         });
 
@@ -80,7 +80,7 @@ it('returns 429 when request limit is reached', (done) => {
     const plugin = {
         register: Limit,
         options: {
-            global: { limit: 1, duration: 1 },
+            global: { limit: 1, duration: '1s' },
             redis: { host: '127.0.0.1', port: 6379 }
         }
     };
@@ -174,7 +174,7 @@ it('ignores error responses', (done) => {
     const plugin = {
         register: Limit,
         options: {
-            global: { limit: 1, duration: 1 }
+            global: { limit: 1, duration: '1s' }
         }
     };
 
