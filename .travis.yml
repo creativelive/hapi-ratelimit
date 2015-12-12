@@ -11,4 +11,6 @@ addons:
     packages:
     - g++-4.8
     - gcc-4.8
+services:
+  - redis-server
 sudo: false
