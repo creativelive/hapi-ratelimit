@@ -1,61 +1,66 @@
-# hapi-ratelimit
+# hapi-ratelimiter
 
-A simple ip based rate limiting plugin for Hapi using Redis.
+[![Build Status](https://travis-ci.org/cilindrox/hapi-ratelimiter.svg)](https://travis-ci.org/cilindrox/hapi-ratelimiter)
+
+A simple IP based rate limiting plugin for Hapi using [Redis].
 
 ##Installation
 
 ```
-npm install hapi-ratelimit
+npm install hapi-ratelimiter
 ```
 
 ## Usage
 
 In the Hapi init code:
-```javascript
-var Hapi = require('hapi');
-var hratelimit = require('hapi-ratelimit');
-var server = new Hapi.Server();
 
-// Config for ratelimit
-var rateOpts = {
-  redis:{
-    port:#redis-port#,
-    host:#redis-host#
-  },
-  namespace: "clhr", //namespace for redis keys
-  global: {
-    limit: 200, 
-    duration: 60 
-  } //Set limit to -1 or leave out global to disable global limit
-  //The global limit is not given priority over local limits
+```javascript
+const Hapi = require('hapi');
+const Limiter = require('hapi-ratelimit');
+
+const server = new Hapi.Server();
+server.connection();
+
+// Ratelimiter config
+
+const options = {
+    redis: process.env.REDIS_URL,  // Or any valid ioredis options
+    namespace: 'clhr', // Namespace for redis keys
+    global: {
+        limit: 200,   // Set limit to -1 or leave out global to disable global limit
+        duration: 60 
+    }
+    // Global limit is not given priority over local limits
 };
 
-var connection = server.connection({
-  port: 80,
-  labels: 'something'
+connection.register({ register: Limiter, options: options }, (err) => { 
+
+    if (err) { 
+        throw err;
+    } 
 });
 
 connection.route({
-  method: 'GET',
-  path: '/someImportantRoute',
-  handler: someHandler,
-  configs: {
-    plugins: { // If you want to override the default values
-       "hapi-ratelimit": {
-         limit: 100, 
-         duration: 60
-       } //limits to one hundred hits per minute on a specific route
+    method: 'GET',
+    path: '/someImportantRoute',
+    handler: someHandler,
+    config: {
+        plugins: { // If you want to override the default values
+            'hapi-ratelimit': {
+                limit: 100, 
+                duration: 60
+            } // Limits to one hundred hits per minute on a specific route
+        }
     }
-  }
 });
-
-connection.register({
-    register: hratelimit,
-    options: rateOpts
-  },
-  function(err) {
-    console.log(err);
-  }
-);
 ```
 
+## Credits
+
+This module borrows heavily from [creativelive/hapi-ratelimit], so credit for original implementation goes there.
+The rate-limiting logic in itself relies on [tj/node-ratelimiter], which is another awesome project.
+
+
+[Redis]: https://github.com/luin/ioredis
+[creativelive/hapi-ratelimit]: https://github.com/creativelive/hapi-ratelimit
+[tj/node-ratelimiter]: https://github.com/tj/node-ratelimiter
